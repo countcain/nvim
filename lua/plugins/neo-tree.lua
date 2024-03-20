@@ -1,12 +1,6 @@
 return {
   {
     "nvim-neo-tree/neo-tree.nvim",
-    branch = "v3.x",
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      "nvim-tree/nvim-web-devicons",
-      "MunifTanjim/nui.nvim",
-    },
     keys = {
       { "<leader>E", "<leader>fe", desc = "Explorer NeoTree (root dir)", remap = true },
       { "<leader>e", "<leader>fE", desc = "Explorer NeoTree (cwd)", remap = true },

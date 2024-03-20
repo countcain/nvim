@@ -37,11 +37,10 @@ return {
   },
   {
     "folke/flash.nvim",
-    event = "VeryLazy",
-    vscode = true,
-    ---@type Flash.Config
-    opts = {},
     keys = {
+      -- disable original s and S
+      { "s", mode = { "n", "x", "o" }, false },
+      { "S", mode = { "n", "x", "o" }, false },
       {
         "q",
         mode = { "n", "x", "o" },
@@ -59,5 +58,27 @@ return {
         desc = "Flash Treesitter",
       },
     },
+  },
+  {
+    "folke/noice.nvim",
+    keys = {
+      -- disable scroll forward and backward
+      { "<c-f>", mode = { "n", "i", "s" }, false },
+      { "<c-b>", mode = { "n", "i", "s" }, false },
+    },
+  },
+  {
+    "neovim/nvim-lspconfig",
+    init = function()
+      local keys = require("lazyvim.plugins.lsp.keymaps").get()
+      -- change code action keymap
+      keys[#keys + 1] =
+        { "<c-a>", vim.lsp.buf.code_action, desc = "Code Action", mode = { "n", "v" }, has = "codeAction" }
+      -- disable original keymap
+      keys[#keys + 1] = { "<leader>ca", false }
+
+      keys[#keys + 1] = { "<c-i>", vim.lsp.buf.hover, desc = "Hover" }
+      keys[#keys + 1] = { "K", false }
+    end,
   },
 }
