@@ -7,8 +7,17 @@ return {
       "nvim-tree/nvim-web-devicons",
       "MunifTanjim/nui.nvim",
     },
+    keys = {
+      { "<leader>E", "<leader>fe", desc = "Explorer NeoTree (root dir)", remap = true },
+      { "<leader>e", "<leader>fE", desc = "Explorer NeoTree (cwd)", remap = true },
+    },
     opts = {
       filesystem = {
+        filtered_items = {
+          visible = true,
+          hide_dotfiles = false,
+          hide_gitignored = true,
+        },
         window = {
           mappings = {
             ["h"] = function(state)
