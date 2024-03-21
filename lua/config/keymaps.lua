@@ -11,3 +11,6 @@ vim.keymap.del({ "n", "v" }, "<leader>cf")
 vim.keymap.set({ "n", "v" }, "<C-f>", function()
   Util.format({ force = true })
 end, { desc = "Format" })
+
+vim.keymap.set("i", "<C-l>", "<Right>", { desc = "<C-l> to move right in insert mode" })
+vim.keymap.set("i", "<C-h>", "<Left>", { desc = "<C-h> to move left in insert mode" })
