@@ -3,6 +3,14 @@ local Util = require("lazyvim.util")
 
 return {
   {
+    "akinsho/bufferline.nvim",
+    opts = {
+      options = {
+        always_show_bufferline = true,
+      },
+    },
+  },
+  {
     "nvim-lualine/lualine.nvim",
     opts = {
       sections = {
