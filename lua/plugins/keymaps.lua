@@ -77,7 +77,7 @@ return {
       -- disable original keymap
       keys[#keys + 1] = { "<leader>ca", false }
 
-      keys[#keys + 1] = { "<c-i>", vim.lsp.buf.hover, desc = "Hover" }
+      keys[#keys + 1] = { "<c-d>", vim.lsp.buf.hover, desc = "Hover" }
       keys[#keys + 1] = { "K", false }
     end,
   },
