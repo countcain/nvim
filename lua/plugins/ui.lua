@@ -3,10 +3,6 @@ local Util = require("lazyvim.util")
 
 return {
   {
-    "folke/tokyonight.nvim",
-    opts = { style = "storm" },
-  },
-  {
     "akinsho/bufferline.nvim",
     opts = {
       options = {
