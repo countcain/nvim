@@ -27,6 +27,8 @@ return {
         "vimdoc",
         "xml",
         "yaml",
+        "http",
+        "graphql",
       },
     },
   },
