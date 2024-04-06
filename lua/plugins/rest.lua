@@ -27,6 +27,11 @@ return {
             "http rest: select env file",
           },
         },
+        result = {
+          keybinds = {
+            buffer_local = true,
+          },
+        },
       })
     end,
   },
