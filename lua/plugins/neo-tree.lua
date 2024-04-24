@@ -14,6 +14,8 @@ return {
         },
         window = {
           mappings = {
+            ["[h"] = "prev_git_modified",
+            ["]h"] = "next_git_modified",
             ["h"] = function(state)
               local node = state.tree:get_node()
               if node.type == "directory" and node:is_expanded() then
