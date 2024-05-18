@@ -17,3 +17,10 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.opt_local.spellcapcheck = ""
   end,
 })
+
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = { "xml" },
+  callback = function()
+    vim.keymap.set("n", "<C-f>", ':%!xmllint "%" --format<CR>', { buffer = true })
+  end,
+})
