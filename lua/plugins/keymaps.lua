@@ -1,4 +1,4 @@
-local Util = require("lazyvim.util")
+local Pick = require("lazyvim.util.pick")
 
 return {
   {
@@ -29,10 +29,10 @@ return {
     -- if use a function here, it will override all default keys
     -- if use a object here, it will extend to the default keys
     keys = {
-      { "<leader>fF", Util.telescope("files"), desc = "Find Files (root dir)" },
-      { "<leader>ff", Util.telescope("files", { cwd = false }), desc = "Find Files (cwd)" },
-      { "<leader>sG", Util.telescope("live_grep"), desc = "Grep (root dir)" },
-      { "<leader>sg", Util.telescope("live_grep", { cwd = false }), desc = "Grep (cwd)" },
+      { "<leader>fF", Pick("files"), desc = "Find Files (root dir)" },
+      { "<leader>ff", Pick("files", { cwd = false }), desc = "Find Files (cwd)" },
+      { "<leader>sG", Pick("live_grep"), desc = "Grep (root dir)" },
+      { "<leader>sg", Pick("live_grep", { cwd = false }), desc = "Grep (cwd)" },
     },
   },
   {
