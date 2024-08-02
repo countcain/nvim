@@ -40,6 +40,13 @@ return {
           hide_gitignored = false,
         },
       },
+      buffers = {
+        window = {
+          mappings = {
+            ["d"] = "buffer_delete",
+          },
+        },
+      },
     },
   },
 }
