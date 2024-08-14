@@ -29,10 +29,10 @@ return {
     -- if use a function here, it will override all default keys
     -- if use a object here, it will extend to the default keys
     keys = {
-      { "<leader>fF", Pick("files"), desc = "Find Files (root dir)" },
-      { "<leader>ff", Pick("files", { cwd = false }), desc = "Find Files (cwd)" },
+      { "<leader>fF", Pick("auto"), desc = "Find Files (root dir)" },
+      { "<leader>ff", Pick("auto", { root = false }), desc = "Find Files (cwd)" },
       { "<leader>sG", Pick("live_grep"), desc = "Grep (root dir)" },
-      { "<leader>sg", Pick("live_grep", { cwd = false }), desc = "Grep (cwd)" },
+      { "<leader>sg", Pick("live_grep", { root = false }), desc = "Grep (cwd)" },
     },
   },
   {
