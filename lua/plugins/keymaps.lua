@@ -2,7 +2,7 @@ local Pick = require("lazyvim.util.pick")
 
 return {
   {
-    "echasnovski/mini.bufremove",
+    "nvim-mini/mini.bufremove",
     keys = {
       { -- it just extends the plugin's existing keymaps
         "<S-w>",
@@ -70,24 +70,47 @@ return {
   {
     "neovim/nvim-lspconfig",
     opts = {
-      inlay_hints = {
-        enabled = false,
+      servers = {
+        ["*"] = {
+          keys = {
+            {
+              "<c-d>",
+              vim.lsp.buf.hover,
+              desc = "Hover to show type",
+            },
+            { "K", false },
+            {
+              "<c-a>",
+              vim.lsp.buf.code_action,
+              desc = "Code Action",
+              mode = { "n", "v" },
+              has = "codeAction",
+            },
+            { "<leader>ca", false },
+          },
+        },
+        eslint = {
+          cmd_env = {
+            NODE_OPTIONS = "--max-old-space-size=10240",
+          },
+        },
+        vtsls = {
+          settings = {
+            typescript = {
+              tsserver = {
+                maxTsServerMemory = 10240,
+              },
+            },
+            vtsls = {
+              autoUseWorkspaceTsdk = false,
+              experimental = {
+                maxInlayHintLength = 5,
+              },
+            },
+          },
+        },
       },
     },
-  },
-  {
-    "neovim/nvim-lspconfig",
-    init = function()
-      local keys = require("lazyvim.plugins.lsp.keymaps").get()
-      -- change code action keymap
-      keys[#keys + 1] =
-        { "<c-a>", vim.lsp.buf.code_action, desc = "Code Action", mode = { "n", "v" }, has = "codeAction" }
-      -- disable original keymap
-      keys[#keys + 1] = { "<leader>ca", false }
-
-      keys[#keys + 1] = { "<c-d>", vim.lsp.buf.hover, desc = "Hover" }
-      keys[#keys + 1] = { "K", false }
-    end,
   },
   { -- disable default <tab> and <s-tab> behavior in LuaSnip
     "L3MON4D3/LuaSnip",
