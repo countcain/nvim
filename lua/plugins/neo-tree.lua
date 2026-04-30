@@ -6,10 +6,9 @@ return {
       { "<leader>e", "<leader>fE", desc = "Explorer NeoTree (cwd)", remap = true },
     },
     opts = {
+      enable_git_status = false, -- enable git status in neo tree buffer mode is extremenly laggy
       window = {
         mappings = {
-          ["[h"] = "prev_git_modified",
-          ["]h"] = "next_git_modified",
           ["h"] = function(state)
             local node = state.tree:get_node()
             if node.type == "directory" and node:is_expanded() then
@@ -34,13 +33,26 @@ return {
         },
       },
       filesystem = {
+        use_libuv_file_watcher = true,
         filtered_items = {
           visible = true,
           hide_dotfiles = false,
           hide_gitignored = false,
         },
+        window = {
+          mappings = {
+            ["[h"] = "prev_git_modified",
+            ["]h"] = "next_git_modified",
+          },
+        },
       },
       buffers = {
+        show_unloaded = false,
+        follow_current_file = {
+          enabled = true,
+          leave_dirs_open = false,
+        },
+        group_empty_dirs = true,
         window = {
           mappings = {
             ["d"] = "buffer_delete",
